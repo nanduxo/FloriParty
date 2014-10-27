@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="WEB-INF/templates/base.xhtml">
+
+	<ui:define name="title">Contato!</ui:define>
+	
+
+		<ui:define name="content">
+		<div class="panel panel-default col-md-9">
+			<div class="panel-body">
+				<h:form role="form">
+					<div class="form-group">
+						<h:outputLabel value="Nome" /> 
+						<h:inputText value="#{contatoMb.nome}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="E-mail" /> 
+						<h:inputText value="#{contatoMb.email}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Senha" /> 
+						<h:inputSecret value="#{contatoMb.senha}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Área" />
+						<h:selectOneMenu value="#{contatoMb.area}" styleClass="form-control" style="width:45%;">
+							<f:selectItem itemValue="" itemLabel=" -- " />
+							<f:selectItem itemValue="1" itemLabel="Comercial" />
+							<f:selectItem itemValue="2" itemLabel="Suporte" />
+						</h:selectOneMenu>
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Mensagem" />
+						<h:inputTextarea value="#{contatoMb.mensagem}" styleClass="form-control" />
+					</div>
+					<div class="checkbox">
+						<label>
+							<h:selectBooleanCheckbox value="#{contatoMb.news}" /> Receber news
+						</label>
+					</div>
+					<h:commandButton action="#{contatoMb.enviar}" styleClass="btn btn-default" value="Enviar" />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
+
+

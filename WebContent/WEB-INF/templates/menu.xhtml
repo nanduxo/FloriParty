@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+	<img src="resources/img/roxo.jpg" style="width: 100%; height: 270px" />
+
+
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.xhtml">Inicio</a>
+			</div>
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="quemsomos.xhtml">Quem somos</a></li>
+					<li><a href="eventos.xhtml">Eventos</a></li>
+					<li class="active"><a href="contato.xhtml">Contato</a></li>
+					<li><a href="localizacao.xhtml">Localização</a></li>
+				</ul>
+
+
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Digite Aqui"></input>
+					</div>
+					<button type="submit" class="btn btn-default">Pesquisar</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="cadastro.xhtml">Cadastre-se</a></li>
+					
+					<ul id="menu_admin" class="nav navbar-nav navbar-right">
+					<li class="dropdown"> <a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Admin <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><h:link outcome="/admin/clienteform" value="Cadastrar" /></li>
+							<li><h:link outcome="/admin/clientelista" value="Listar" /></li>
+						</ul></li>
+				</ul>
+					
+						
+						
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<h:outputScript library="js" name="menu.js"></h:outputScript>
+</ui:composition>

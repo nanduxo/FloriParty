@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+	<link rel="shortcut icon" href="#{resource['img/icon.png']}"></link>
+
+	<h:outputStylesheet library="css" name="base.css"></h:outputStylesheet>
+	<!-- Latest compiled and minified CSS -->
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<!-- Optional theme -->
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css"></h:outputStylesheet>
+	
+	<!-- Placed at the end of the document so the pages load faster -->
+	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+	
+</h:head>
+<h:body>
+	<ui:include src="/WEB-INF/templates/menu.xhtml"></ui:include>
+	<div class="container content">
+		
+		<ui:insert name="content"></ui:insert>
+	</div>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+</h:body>
+</html>
