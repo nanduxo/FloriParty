@@ -1,18 +1,22 @@
 package Entidade;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Evento {
 
 	@Id
 	@GeneratedValue
-	private int numero;
+	private Long id;
 
 	private String nomeevento;
 	private String data;
@@ -23,6 +27,9 @@ public class Evento {
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Cliente cliente;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "eventos")
+	private List<Cliente> Clientes;
 
 	public Evento(EntityManager entityManager) {
 		// TODO Auto-generated constructor stub
@@ -32,12 +39,12 @@ public class Evento {
 		this.cliente = cliente;
 	}
 
-	public int getNumero() {
-		return numero;
+	public Long getId() {		
+		return id;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNomeevento() {

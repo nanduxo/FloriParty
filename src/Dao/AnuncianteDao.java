@@ -22,17 +22,18 @@ public class AnuncianteDao {
 		return query.getResultList();
 	}
 
-	public void salvarEvento(Anunciante anunciante) {
+	public void salvarAnunciante(Anunciante anunciante) {
 		entityManager.merge(anunciante);
 	}
 
-	public Anunciante buscarPorIdEvento(Long id) {
+	public Anunciante buscarPorIdAnunciante(Long id) {
 		return entityManager.find(Anunciante.class, id);
 	}
 
-	public void excluir(Long id) {
+	public Anunciante excluirAnunciante(Long id) {
 		Anunciante anunciante = entityManager.getReference(Anunciante.class, id);
 		entityManager.remove(anunciante);
+		return anunciante;
 	}
 
 }

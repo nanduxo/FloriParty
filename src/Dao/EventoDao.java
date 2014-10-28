@@ -1,10 +1,8 @@
 package Dao;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import Entidade.Evento;
 import Util.JpaUtil;
 
@@ -22,17 +20,18 @@ public class EventoDao {
 		return query.getResultList();
 	}
 
-	public void salvarEvento(Evento evento) {
-		entityManager.merge(evento);
+	public void salvarEvento(List<Evento> list) {
+		entityManager.merge(list);
 	}
 
 	public Evento buscarPorIdEvento(Long id) {
 		return entityManager.find(Evento.class, id);
 	}
 
-	public void excluir(Long id) {
+	public Evento excluirEvento(Long id) {
 		Evento evento = entityManager.getReference(Evento.class, id);
 		entityManager.remove(evento);
+		return evento;
 	}
 
 }
