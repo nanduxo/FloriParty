@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="WEB-INF/templates/base.xhtml">
+
+	<ui:define name="title">Bem vindo!</ui:define>
+	<ui:define name="content">
+<div class="page-header">
+			<ui:insert name="page-title">
+				<h1>Cadastro Eventos</h1>
+			</ui:insert>
+		</div>
+		
+		<div class="panel panel-default col-md-9">
+			<div class="panel-body">
+				<h:form role="form">
+					<div class="form-group">
+						<h:outputLabel value="Nome do Evento" /> 
+						<h:inputText value="#{eventoMb.evento.nomeevento}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Data" /> 
+						<h:inputText value="#{eventoMb.evento.data}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Local" /> 
+						<h:inputText value="#{eventoMb.evento.local}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Traje" /> 
+						<h:inputText value="#{eventoMb.evento.traje}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Valor" /> 
+						<h:inputSecret value="#{eventoMb.evento.valor}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+					<div class="form-group">
+						<h:outputLabel value="Atracao" /> 
+						<h:inputSecret value="#{eventoMb.evento.atracao}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						
+						
+				
+					<h:commandButton action="#{eventoMb.salvar}" styleClass="btn btn-default" value="Enviar" />
+				
+				
+				
+				</div>
+				</div>
+				</h:form>
+			</div>
+		</div>
+		
+	</ui:define>
+</ui:composition>
+</html>

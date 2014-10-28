@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="WEB-INF/templates/base.xhtml">
+
+	<ui:define name="title">Bem vindo!</ui:define>
+	<ui:define name="content">
+<div class="page-header">
+			<ui:insert name="page-title">
+				<h1>Cadastro</h1>
+			</ui:insert>
+		</div>
+		
+		<div class="panel panel-default col-md-9">
+			<div class="panel-body">
+				<h:form role="form">
+					<div class="form-group">
+						<h:outputLabel value="Nome" /> 
+						<h:inputText value="#{clienteMb.cliente.nome}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="E-mail" /> 
+						<h:inputText value="#{clienteMb.cliente.email}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="CPF" /> 
+						<h:inputSecret value="#{clienteMb.cliente.cpf}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+					<div class="form-group">
+						<h:outputLabel value="Senha" /> 
+						<h:inputSecret value="#{clienteMb.cliente.senha}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						
+						
+				
+					<h:commandButton action="#{clienteMb.salvar}" styleClass="btn btn-default" value="Enviar" />
+				
+				
+				
+				</div>
+				</div>
+				</h:form>
+			</div>
+		</div>
+		
+	</ui:define>
+</ui:composition>
+</html>
