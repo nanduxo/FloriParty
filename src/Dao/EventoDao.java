@@ -14,21 +14,21 @@ public class EventoDao {
 		entityManager = JpaUtil.getEntityManager();
 	}
 	
-	public List<Evento> listarEvento() {
+	public List<Evento> listar() {
 		Query query = entityManager
 				.createQuery("From Evento", Evento.class);
 		return query.getResultList();
 	}
 
-	public void salvarEvento(List<Evento> list) {
+	public void salvar(List<Evento> list) {
 		entityManager.merge(list);
 	}
 
-	public Evento buscarPorIdEvento(Long id) {
+	public Evento buscarPorId(Long id) {
 		return entityManager.find(Evento.class, id);
 	}
 
-	public Evento excluirEvento(Long id) {
+	public Evento excluir(Long id) {
 		Evento evento = entityManager.getReference(Evento.class, id);
 		entityManager.remove(evento);
 		return evento;

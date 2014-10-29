@@ -27,16 +27,18 @@ public class Cliente  {
 	private String email;
 	private String senha;
 
+	
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
-	private List<Evento> eventos;
+	private List<Evento> Eventos;
 
-	public List<Evento> getEventos() {
-		return eventos;
-	}
 	
 	
 	
 	
+
+	
+	// getter e setters
 
 	public Long getId() {
 		return id;
@@ -46,14 +48,6 @@ public class Cliente  {
 		this.id = id;
 	}
 
-	
-	
-
-	public void setEventos(List<Evento> eventos) {
-		this.eventos = eventos;
-	}
-
-	// getter e setters
 	public String getNome() {
 		return nome;
 	}
@@ -85,6 +79,13 @@ public class Cliente  {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public List<Evento> getEventos() {
+		return Eventos;
+	}
+
+	public void setEventos(List<Evento> eventos) {
+		this.Eventos = eventos;
 	}
 
 	

@@ -10,54 +10,65 @@
 
 	<ui:define name="title">Bem vindo!</ui:define>
 	<ui:define name="content">
-<div class="page-header">
+		<div class="page-header">
 			<ui:insert name="page-title">
 				<h1>Cadastro Eventos</h1>
 			</ui:insert>
 		</div>
+
 		
 		<div class="panel panel-default col-md-9">
 			<div class="panel-body">
 				<h:form role="form">
 					<div class="form-group">
-						<h:outputLabel value="Nome do Evento" /> 
-						<h:inputText value="#{eventoMb.evento.nomeevento}" styleClass="form-control" />
+						<h:outputLabel value="Nome" /> 
+						<h:inputText value="#{eventoMb.eventos.nome}"
+							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-						<h:outputLabel value="Data" /> 
-						<h:inputText value="#{eventoMb.evento.data}" styleClass="form-control" />
+						<h:outputLabel value="Data" />
+						<h:inputText value="#{eventoMb.eventos.data}"
+							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-						<h:outputLabel value="Local" /> 
-						<h:inputText value="#{eventoMb.evento.local}" styleClass="form-control" />
+						<h:outputLabel value="Local" />
+						<h:inputText value="#{eventoMb.eventos.local}"
+							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-						<h:outputLabel value="Traje" /> 
-						<h:inputText value="#{eventoMb.evento.traje}" styleClass="form-control" />
+						<h:outputLabel value="Traje" />
+						<h:inputText value="#{eventoMb.eventos.traje}"
+							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-						<h:outputLabel value="Valor" /> 
-						<h:inputSecret value="#{eventoMb.evento.valor}" styleClass="form-control" />
+						<h:outputLabel value="Valor" />
+						<h:inputText value="#{eventoMb.eventos.valor}"
+							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-					<div class="form-group">
-						<h:outputLabel value="Atracao" /> 
-						<h:inputSecret value="#{eventoMb.evento.atracao}" styleClass="form-control" />
+						<div class="form-group">
+							<h:outputLabel value="Atracao" />
+							<h:inputText value="#{eventoMb.eventos.atracao}"
+								styleClass="form-control" />
+						<div class="form-group">
+						<h:outputLabel value="Imagem/Flyer" /> 
+						<h:inputFile value="#{eventoMb.imagem}" styleClass="form-control" />
+						<h:inputHidden value="#{eventoMb.eventos.imagem}" />
 					</div>
-					<div class="form-group">
-						
-						
-				
-					<h:commandButton action="#{eventoMb.salvar}" styleClass="btn btn-default" value="Enviar" />
-				
-				
-				
-				</div>
-				</div>
+	
+
+
+							<h:commandButton action="#{eventoMb.salvar}"
+								styleClass="btn btn-default" value="Enviar" />
+
+
+
+						</div>
+					</div>
 				</h:form>
 			</div>
 		</div>
-		
+
 	</ui:define>
 </ui:composition>
 </html>

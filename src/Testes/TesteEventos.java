@@ -33,7 +33,7 @@ public class TesteEventos {
 
 	private static void inserir() {
 		Evento eventos = new Evento(entityManager);
-		eventos.setNomeevento("XXX Pirocada");
+		eventos.setNome("XXX Pirocada");
 		eventos.setTraje("casual");
 		eventos.setValor(35);
 		eventos.setAtracao("Os Mulekes");		

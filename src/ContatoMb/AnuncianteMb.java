@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.servlet.http.Part;
 
+import Util.UploadImageUtil;
 import Dao.AnuncianteDao;
 import Entidade.Anunciante;
 
@@ -17,6 +19,7 @@ import Entidade.Anunciante;
 		
 		private List<Anunciante> anunciantes;
 		private Anunciante anunciante;
+		private Part imagem;
 
 
 		public List<Anunciante> getAnunciantes() {
@@ -44,8 +47,22 @@ import Entidade.Anunciante;
 			anuncianteDao = new AnuncianteDao();
 			anunciante = new Anunciante();
 		}
+		public Part getLogo() {
+			return imagem;
+		}
+
+		public void setImagem(Part imagem) {
+			this.imagem = imagem;
+		}
+
+		
 		
 /////////////////////////////action/////////////////////////////
+		
+		
+		public String caminho(String nomeImagem){
+			return UploadImageUtil.getCaminho(nomeImagem);
+		}
 		
 		public String salvar() throws IOException{
 			anuncianteDao.salvarAnunciante(getAnunciante());

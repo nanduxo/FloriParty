@@ -5,69 +5,71 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-
+import javax.servlet.http.Part;
+import Util.UploadImageUtil;
 import Dao.EventoDao;
-import Entidade.Evento
-;
+import Entidade.Evento;
 
+@ManagedBean
+public class EventoMb {
+	private EventoDao eventoDao;
+	private List<Evento> eventos;
+	private Evento evento;
+	private Part imagem;
 
-
-	@ManagedBean
-	public class EventoMb {
-		private EventoDao eventoDao;
-		
-		private List<Evento> eventos;
-		private Evento evento;
-
-
-		public List<Evento> getEventos1() {
-			if(evento == null){
-				eventos = eventoDao.listarEvento();
-			}
-			return eventos;
+	public List<Evento> getEvento() {
+		if (eventos == null) {
+			eventos = eventoDao.listar();
 		}
-
-		public void seteventos(List<Evento> eventos) {
-			this.eventos = eventos;
-		}
-
-		public Evento getEventos() {
-			return evento;
-		}
-
-		public void setEvento(Evento evento) {
-			this.evento = evento;
-		}
-		
-		
-		@PostConstruct
-		public void init(){
-			eventoDao = new EventoDao();
-			evento = new Evento(null);
-		}
-		
-/////////////////////////////action/////////////////////////////
-		
-		public String salvar() throws IOException{
-			eventoDao.salvarEvento(getEventos1());
-			return "clientelista";
-		}
-		
-		public String carregarEdicao(String id){
-			evento = eventoDao.buscarPorIdEvento(Long.parseLong(id));
-			return "clienteform";
-		}
-		
-		public String excluir(String id){
-			Evento eventoRemovido = eventoDao.excluirEvento(Long.parseLong(id));
-			
-			eventos = null;
-			return "clientelista";
-		}
+		return eventos;
 	}
-	
-	
-	
-	
-	
-	
+
+	public void seteventos(List<Evento> eventos) {
+		this.eventos = eventos;
+	}
+
+	public Evento getEventos() {
+		return evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
+	public Part getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(Part imagem) {
+		this.imagem = imagem;
+	}
+
+	@PostConstruct
+	public void init() {
+		eventoDao = new EventoDao();
+		evento = new Evento();
+	}
+
+	// ///////////////////////////action/////////////////////////////
+
+	public String caminho(String nomeImagem) {
+		return UploadImageUtil.getCaminho(nomeImagem);
+	}
+
+	public String salvar() throws IOException {
+		eventoDao.salvar(getEvento());
+		return "eventolista";
+	}
+
+	public String carregarEdicao(String id) {
+		evento = eventoDao.buscarPorId(Long.parseLong(id));
+		return "eventoform";
+	}
+
+	public String excluir(String id) {
+		Evento eventoRemovido = eventoDao.excluir(Long.parseLong(id));
+
+		eventos = null;
+		return "eventolista";
+	}
+}

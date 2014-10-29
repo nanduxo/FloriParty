@@ -25,6 +25,7 @@ public class Anunciante  {
 	private String nome;
 	private String email;
 	private String descicao;
+	private String imagem;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
 	private List<Evento> eventos;
@@ -91,6 +92,22 @@ public class Anunciante  {
 
 	public void setDescicao(String descicao) {
 		this.descicao = descicao;
+	}
+
+
+
+
+
+	public String getImagem() {
+		return imagem;
+	}
+
+
+
+
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 
