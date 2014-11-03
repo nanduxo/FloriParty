@@ -14,6 +14,10 @@ public class EventoDao {
 		entityManager = JpaUtil.getEntityManager();
 	}
 	
+	public EventoDao(EntityManager entityManager2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public List<Evento> listar() {
 		Query query = entityManager
 				.createQuery("From Evento", Evento.class);

@@ -18,7 +18,7 @@ public class JpaUtil {
 					.createEntityManagerFactory("floriparty_pu");
 	}
 	
-	static EntityManager createEntityManager() {
+	public static EntityManager createEntityManager() {
 		return entityManagerFactory.createEntityManager();
 	}
 

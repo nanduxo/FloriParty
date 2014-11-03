@@ -16,6 +16,10 @@ public class AnuncianteDao {
 		entityManager = JpaUtil.getEntityManager();
 	}
 	
+	public AnuncianteDao(EntityManager entityManager2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public List<Anunciante> listarAnunciante() {
 		Query query = entityManager
 				.createQuery("From Anunciante", Anunciante.class);
