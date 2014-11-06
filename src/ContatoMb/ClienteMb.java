@@ -42,7 +42,7 @@ public class ClienteMb {
 	// ///////////////////////////action/////////////////////////////
 
 	public String salvar() throws IOException {
-		clienteDao.salvar(getCliente());
+		clienteDao.salvar(cliente);
 		return "clientelista";
 	}
 

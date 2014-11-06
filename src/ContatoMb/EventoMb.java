@@ -17,18 +17,20 @@ public class EventoMb {
 	private Evento evento;
 	private Part imagem;
 
-	public List<Evento> getEvento() {
-		if (eventos == null) {
-			eventos = eventoDao.listar();
+	
+
+	public List<Evento> getEventos() {
+		if (eventos== null){
+			eventos=eventoDao.listar();		
 		}
 		return eventos;
 	}
 
-	public void seteventos(List<Evento> eventos) {
+	public void setEventos(List<Evento> eventos) {
 		this.eventos = eventos;
 	}
 
-	public Evento getEventos() {
+	public Evento getEvento() {
 		return evento;
 	}
 
@@ -57,7 +59,7 @@ public class EventoMb {
 	}
 
 	public String salvar() throws IOException {
-		eventoDao.salvar(getEvento());
+		eventoDao.salvar(evento);
 		return "eventolista";
 	}
 

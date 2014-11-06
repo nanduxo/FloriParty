@@ -28,6 +28,7 @@ public class JpaFilter implements Filter {
 
 			entityManager.getTransaction().commit();
 		} catch (Exception exception) {
+			exception.printStackTrace();
 			if (entityManager.getTransaction().isActive())
 				entityManager.getTransaction().rollback();
 

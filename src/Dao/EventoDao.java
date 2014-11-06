@@ -24,8 +24,8 @@ public class EventoDao {
 		return query.getResultList();
 	}
 
-	public void salvar(List<Evento> list) {
-		entityManager.merge(list);
+	public void salvar (Evento evento) {
+		entityManager.merge(evento);
 	}
 
 	public Evento buscarPorId(Long id) {

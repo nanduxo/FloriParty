@@ -10,11 +10,15 @@ public class ClienteDao {
 	
 	private EntityManager entityManager;
 
-	public ClienteDao(EntityManager entityManager2) {
+	public ClienteDao() {
 		entityManager = JpaUtil.getEntityManager();
 	}
 	
 	
+
+	
+
+
 
 	public List<Cliente> listar() {
 		Query query = entityManager
