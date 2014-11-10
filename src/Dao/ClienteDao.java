@@ -15,6 +15,9 @@ public class ClienteDao {
 	}
 	
 	
+	public ClienteDao(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 
 	
 
