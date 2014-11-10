@@ -20,21 +20,21 @@ public class AnuncianteDao {
 		// TODO Auto-generated constructor stub
 	}
 
-	public List<Anunciante> listarAnunciante() {
+	public List<Anunciante> listar() {
 		Query query = entityManager
 				.createQuery("From Anunciante", Anunciante.class);
 		return query.getResultList();
 	}
 
-	public void salvarAnunciante(Anunciante anunciante) {
+	public void salvar(Anunciante anunciante) {
 		entityManager.merge(anunciante);
 	}
 
-	public Anunciante buscarPorIdAnunciante(Long id) {
+	public Anunciante buscarPorId(Long id) {
 		return entityManager.find(Anunciante.class, id);
 	}
 
-	public Anunciante excluirAnunciante(Long id) {
+	public Anunciante excluir(Long id) {
 		Anunciante anunciante = entityManager.getReference(Anunciante.class, id);
 		entityManager.remove(anunciante);
 		return anunciante;

@@ -22,26 +22,33 @@ import Entidade.Anunciante;
 		private Part imagem;
 
 
+		
+		
+		
+		public AnuncianteDao getAnuncianteDao() {
+			return anuncianteDao;
+		}
+		public void setAnuncianteDao(AnuncianteDao anuncianteDao) {
+			this.anuncianteDao = anuncianteDao;
+		}
 		public List<Anunciante> getAnunciantes() {
-			if(anunciante == null){
-				anunciantes = anuncianteDao.listarAnunciante();
+			if (anunciantes== null){
+				anunciantes=anuncianteDao.listar();		
 			}
 			return anunciantes;
 		}
-
-		public void setanunciantes(List<Anunciante> anunciantes) {
+		public void setAnunciantes(List<Anunciante> anunciantes) {
 			this.anunciantes = anunciantes;
 		}
-
 		public Anunciante getAnunciante() {
 			return anunciante;
 		}
-
-		public void setEvento(Anunciante anunciante) {
+		public void setAnunciante(Anunciante anunciante) {
 			this.anunciante = anunciante;
 		}
-		
-		
+		public Part getImagem() {
+			return imagem;
+		}
 		@PostConstruct
 		public void init(){
 			anuncianteDao = new AnuncianteDao();
@@ -65,17 +72,17 @@ import Entidade.Anunciante;
 		}
 		
 		public String salvar() throws IOException{
-			anuncianteDao.salvarAnunciante(getAnunciante());
+			anuncianteDao.salvar(getAnunciante());
 			return "anunciantelista";
 		}
 		
 		public String carregarEdicao(String id){
-			anunciante = anuncianteDao.buscarPorIdAnunciante(Long.parseLong(id));
+			anunciante = anuncianteDao.buscarPorId(Long.parseLong(id));
 			return "anuncianteform";
 		}
 		
 		public String excluir(String id){
-			Anunciante anuncianteRemovido = anuncianteDao.excluirAnunciante(Long.parseLong(id));
+			Anunciante anuncianteRemovido = anuncianteDao.excluir(Long.parseLong(id));
 			
 			anunciantes = null;
 			return "clientelista";

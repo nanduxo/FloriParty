@@ -33,7 +33,7 @@ public class DaoTeste extends TestCase {
 	
 	@Test
 	public void testClienteDao() {
-		ClienteDao dao = new ClienteDao(entityManager);
+		ClienteDao dao = new ClienteDao();
 		assertNotNull("Objeto de acesso a dados do objeto Cliente esta nulo", dao);
 		dao = null;
 	}
