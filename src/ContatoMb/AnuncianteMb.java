@@ -72,8 +72,13 @@ import Entidade.Anunciante;
 		}
 		
 		public String salvar() throws IOException{
+			String nomeImagem = UploadImageUtil.copiar(imagem, anunciante.getImagem());
+			anunciante.setImagem(nomeImagem);
+			
+			
+			
 			anuncianteDao.salvar(getAnunciante());
-			return "anunciantelista";
+			return "/index?faces-redirect=true";
 		}
 		
 		public String carregarEdicao(String id){
@@ -85,7 +90,7 @@ import Entidade.Anunciante;
 			Anunciante anuncianteRemovido = anuncianteDao.excluir(Long.parseLong(id));
 			
 			anunciantes = null;
-			return "clientelista";
+			return "anunciantelista";
 		}
 	}
 	

@@ -14,18 +14,18 @@
 		<div class="panel panel-default col-md-9">
 			<div class="panel-body">
 				<h:form>
-					<h:dataTable value="#{clienteMb.clientes}" var="cliente" styleClass="table">
+					<h:dataTable value="#{anuncianteMb.anunciantes}" var="anunciante" styleClass="table">
 						<h:column>
 						<f:facet name="header">Nº de Identificação</f:facet>
-							<h:outputText value="#{cliente.id}" />
+							<h:outputText value="#{anunciante.id}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">Nome de Usuarios</f:facet>
-							<h:outputText value="#{cliente.nome}" />
+							<h:outputText value="#{anunciante.nome}" />
 						</h:column>
 						<h:column>
-							<h:commandLink action="#{clienteMb.carregarEdicao(cliente.id)}"><span class="glyphicon glyphicon-pencil"></span></h:commandLink> 
-							<h:commandLink action="#{clienteMb.excluir(cliente.id)}"><span class="glyphicon glyphicon-trash"></span></h:commandLink>
+							<h:commandLink action="#{anuncianteMb.carregarEdicao(anunciante.id)}"><span class="glyphicon glyphicon-pencil"></span></h:commandLink> 
+							<h:commandLink action="#{anuncianteMb.excluir(anunciante.id)}"><span class="glyphicon glyphicon-trash"></span></h:commandLink>
 						</h:column>
 					</h:dataTable>
 				</h:form>
