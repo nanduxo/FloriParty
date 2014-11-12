@@ -8,7 +8,7 @@
 
 <ui:composition template="../WEB-INF/templates/base.xhtml">
 	<ui:define name="page-title">
-		<h1>Canal - <small>lista</small></h1>
+		<h1>Evento <small>lista</small></h1>
 	</ui:define>
 	<ui:define name="content">
 		<div class="panel panel-default col-md-9">
@@ -16,15 +16,23 @@
 				<h:form role="form">
 					<h:dataTable value="#{eventoMb.eventos}" var="evento" styleClass="table">
 						<h:column>
-						<f:facet name="header">Nº</f:facet>
+						<f:facet name="header">Nº do Evento</f:facet>
 							<h:outputText value="#{evento.nome}" />
 						</h:column>
 						<h:column>
-							<f:facet name="header">Nome</f:facet>
+							<f:facet name="header">Nome do Evento</f:facet>
 							<h:outputText value="#{evento.local}" />
 						</h:column>
 						<h:column>
-							<h:commandLink action="#{eventoMB.carregarEdicao(evento.id)}"><span class="glyphicon glyphicon-pencil"></span></h:commandLink> 
+							<f:facet name="header">Atração</f:facet>
+							<h:outputText value="#{evento.atracao}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Data</f:facet>
+							<h:outputText value="#{evento.data}" />
+						</h:column>						
+						<h:column>
+							<h:commandLink action="#{eventoMb.carregarEdicao(evento.id)}"><span class="glyphicon glyphicon-pencil"></span></h:commandLink> 
 							<h:commandLink action="#{eventoMb.excluir(evento.id)}"><span class="glyphicon glyphicon-trash"></span></h:commandLink>
 						</h:column>
 					</h:dataTable>

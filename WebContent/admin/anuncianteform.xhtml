@@ -8,7 +8,9 @@
 
 <ui:composition template="../WEB-INF/templates/base.xhtml">
 	<ui:define name="page-title">
-		<h1>			Canal - <small>cadastro</small></h1>
+		<h1>
+			Canal - <small>cadastro</small>
+		</h1>
 	</ui:define>
 	<ui:define name="content">
 		<div class="panel panel-default col-md-9">
@@ -17,8 +19,9 @@
 					<h:inputHidden value="#{anuncianteMb.anunciante.id}" />
 					<h:panelGroup rendered="#{not empty anuncianteMb.anunciante.id}">
 						<div class="form-group">
-							<h:outputLabel value="Código" /> 
-							<h:inputText readonly="true" value="#{anuncianteMb.anunciante.id}" styleClass="form-control" />
+							<h:outputLabel value="Código" />
+							<h:inputText readonly="true"
+								value="#{anuncianteMb.anunciante.id}" styleClass="form-control" />
 						</div>
 					</h:panelGroup>
 
@@ -37,16 +40,20 @@
 						<h:inputText value="#{anuncianteMb.anunciante.descicao}"
 							styleClass="form-control" />
 					</div>
+					<div>
+					   <h:outputLabel value="Antigo logo/Imagem " />
+						<h:graphicImage value="#{anuncianteMb.caminho(anuncianteMb.anunciante.imagem)}" />
+					</div>
 					<div class="form-group">
-						<h:outputLabel value="Imagem" />
-						<h:inputText value="#{anuncianteMb.anunciante.imagem}"
-							styleClass="form-control" />
+						<h:outputLabel value="Deseja Trocar de Imagem/Logo ?" />
+						<h:inputFile value="#{anuncianteMb.imagem}" styleClass="form-control" />
+						<h:inputHidden value="#{anuncianteMb.anunciante.imagem}" />
 					</div>
 
 					<h:commandButton action="#{anuncianteMb.salvar}"
-						styleClass="btn btn-default" value="Enviar"  />
-						
-					
+						styleClass="btn btn-default" value="Enviar" />
+
+
 				</h:form>
 			</div>
 		</div>

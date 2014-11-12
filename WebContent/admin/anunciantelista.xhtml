@@ -24,6 +24,10 @@
 							<h:outputText value="#{anunciante.nome}" />
 						</h:column>
 						<h:column>
+							<f:facet name="header">E-mail</f:facet>
+							<h:outputText value="#{anunciante.email}" />
+						</h:column>
+						<h:column>
 							<h:commandLink action="#{anuncianteMb.carregarEdicao(anunciante.id)}"><span class="glyphicon glyphicon-pencil"></span></h:commandLink> 
 							<h:commandLink action="#{anuncianteMb.excluir(anunciante.id)}"><span class="glyphicon glyphicon-trash"></span></h:commandLink>
 						</h:column>

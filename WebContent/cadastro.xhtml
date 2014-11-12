@@ -10,46 +10,51 @@
 
 	<ui:define name="title">Bem vindo!</ui:define>
 	<ui:define name="content">
-<div class="page-header">
+		<div class="page-header">
 			<ui:insert name="page-title">
 				<h1>Cadastro</h1>
 			</ui:insert>
 		</div>
-		
+
 		<div class="panel panel-default col-md-9">
 			<div class="panel-body">
 				<h:form role="form">
 					<div class="form-group">
-						<h:outputLabel value="Nome" /> 
-						<h:inputText value="#{clienteMb.cliente.nome}" styleClass="form-control" />
+						<h:outputLabel value="Nome" />
+						<h:inputText value="#{clienteMb.cliente.nome}"
+							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-						<h:outputLabel value="E-mail" /> 
-						<h:inputText value="#{clienteMb.cliente.email}" styleClass="form-control" />
+						<h:outputLabel value="E-mail" />
+						<h:inputText value="#{clienteMb.cliente.email}"
+							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-						<h:outputLabel value="CPF" /> 
-						<h:inputText value="#{clienteMb.cliente.cpf}" styleClass="form-control" />
+						<h:outputLabel value="CPF" />
+						<h:inputText value="#{clienteMb.cliente.cpf}"
+							styleClass="form-control" />
+					</div>
+
+					<div class="form-group">
+						<h:outputLabel value="Senha" />
+						<h:inputSecret value="#{clienteMb.cliente.senha}"
+							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-					<div class="form-group">
-						<h:outputLabel value="Senha" /> 
-						<h:inputSecret value="#{clienteMb.cliente.senha}" styleClass="form-control" />
+
+
+
+						<h:commandButton action="#{clienteMb.salvar}"
+							styleClass="btn btn-default" value="Enviar" />
 					</div>
-					<div class="form-group">
-						
-						
-				
-					<h:commandButton action="#{clienteMb.salvar}" styleClass="btn btn-default" value="Enviar" />
-				
-				
-				
-				</div>
-				</div>
+
 				</h:form>
 			</div>
 		</div>
-		
+
+
+
+
 	</ui:define>
 </ui:composition>
 </html>

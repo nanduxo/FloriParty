@@ -18,7 +18,7 @@
 					<h:panelGroup rendered="#{not empty clienteMb.cliente.id}">
 						<div class="form-group">
 							<h:outputLabel value="Código" /> 
-							<h:inputText readonly="true" value="#{canalMb.canal.id}" styleClass="form-control" />
+							<h:inputText readonly="true" value="#{clienteMb.cliente.id}" styleClass="form-control" />
 						</div>
 					</h:panelGroup>
 
@@ -38,7 +38,7 @@
 							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-						<h:outputLabel value="Email" />
+						<h:outputLabel value="Senha" />
 						<h:inputText value="#{clienteMb.cliente.senha}"
 							styleClass="form-control" />
 					</div>

@@ -18,11 +18,9 @@ public class EventoMb {
 	private Evento evento;
 	private Part imagem;
 
-	
-
 	public List<Evento> getEventos() {
-		if (eventos== null){
-			eventos=eventoDao.listar();		
+		if (eventos == null) {
+			eventos = eventoDao.listar();
 		}
 		return eventos;
 	}
@@ -61,7 +59,7 @@ public class EventoMb {
 
 	public String salvar() throws IOException {
 		String nomeImagem = UploadImageUtil.copiar(imagem, evento.getImagem());
-		
+
 		eventoDao.salvar(evento);
 		return "index";
 	}
