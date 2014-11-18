@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/base.xhtml">
+	<ui:define name="page-title">
+		<h1>			Canal - <small>cadastro</small></h1>
+	</ui:define>
+	<ui:define name="content">
+		<div class="panel panel-default col-md-9">
+			<div class="panel-body">
+				<h:form role="form" enctype="multipart/form-data">
+					<h:inputHidden value="#{eventoMb.evento.id}" />
+					<h:panelGroup rendered="#{not empty eventoMb.evento.id}">
+						<div class="form-group">
+							<h:outputLabel value="Código" /> 
+							<h:inputText readonly="true" value="#{eventoMb.evento.id}" styleClass="form-control" />
+						</div>
+					</h:panelGroup>
+
+					<div class="form-group">
+						<h:outputLabel value="Nome" />
+						<h:inputText value="#{eventoMb.evento.nome}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Data" />
+						<h:inputText value="#{eventoMb.evento.data}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Local" />
+						<h:inputText value="#{eventoMb.evento.local}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Valor" />
+						<h:inputText value="#{eventoMb.evento.valor}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Atração" />
+						<h:inputText value="#{eventoMb.evento.atracao}"
+							styleClass="form-control" />
+					</div>
+					<h:commandButton action="#{eventoMb.salvar}"
+						styleClass="btn btn-default" value="Enviar"  />
+						
+					
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
