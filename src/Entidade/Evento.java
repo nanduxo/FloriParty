@@ -7,18 +7,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+
+
 @Entity
 public class Evento {
 
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	//
 	@Column(length=30)
 	private String nome;
 	private String data;
 	private String local;
 	private String traje;
-	private int valor;
+	private float valor;
 	private String atracao;
 	private String imagem;
 
@@ -66,11 +70,11 @@ public class Evento {
 		this.traje = traje;
 	}
 
-	public int getValor() {
+	public float getValor() {
 		return valor;
 	}
 
-	public void setValor(int valor) {
+	public void setValor(float valor) {
 		this.valor = valor;
 	}
 

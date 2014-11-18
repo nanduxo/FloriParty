@@ -25,6 +25,14 @@
 							styleClass="form-control" />
 					</div>
 					<div class="form-group">
+						<h:outputLabel value="Sexo" />
+						<h:selectOneMenu value="#{clienteMb.cliente.sexo}" styleClass="form-control" style="width:45%;">
+							<f:selectItem itemValue="" itemLabel=" -- " />
+							<f:selectItem itemValue="masc" itemLabel="Masculino" />
+							<f:selectItem itemValue="fem" itemLabel="Feminino" />
+						</h:selectOneMenu>
+					</div>
+					<div class="form-group">
 						<h:outputLabel value="E-mail" />
 						<h:inputText value="#{clienteMb.cliente.email}"
 							styleClass="form-control" />
@@ -42,6 +50,15 @@
 					</div>
 					<div class="form-group">
 
+						<div class="form-group">
+							<h:outputLabel value="Relacionamento" />
+							<h:selectOneMenu value="#{clienteMb.cliente.relacionamento}"
+								styleClass="form-control" style="width:45%;">
+								<f:selectItem itemValue="" itemLabel=" -- " />
+								<f:selectItems value="#{clienteMb.relacionamentos}" var="cli"
+									itemLabel="#{cli.descricao}" itemValue="#{cli.id}" />
+							</h:selectOneMenu>
+						</div>
 
 
 						<h:commandButton action="#{clienteMb.salvar}"

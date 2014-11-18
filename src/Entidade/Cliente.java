@@ -26,9 +26,27 @@ public class Cliente  {
 	private String cpf;
 	private String email;
 	private String senha;
+	private String sexo;
+	private Integer relacionamento;
 
 	
 	
+	public Integer getRelacionamento() {
+		return relacionamento;
+	}
+
+	public void setRelacionamento(Integer relacionamento) {
+		this.relacionamento = relacionamento;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo( String sexo) {
+		this.sexo = sexo;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
 	private List<Evento> Eventos;
 

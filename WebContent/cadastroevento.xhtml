@@ -27,9 +27,12 @@
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Data" />
-						<h:inputText value="#{eventoMb.evento.data}"
-							styleClass="form-control" />
+						<h:inputText value="#{eventoMb.evento.data}" styleClass="form-control" >
+							<f:passThroughAttribute name="type" value="datetime-local"/>
+							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />	
+						</h:inputText>
 					</div>
+					
 					<div class="form-group">
 						<h:outputLabel value="Local" />
 						<h:inputText value="#{eventoMb.evento.local}"

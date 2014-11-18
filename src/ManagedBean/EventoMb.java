@@ -1,4 +1,4 @@
-package ContatoMb;
+package ManagedBean;
 
 import java.io.IOException;
 import java.util.List;
@@ -58,10 +58,14 @@ public class EventoMb {
 	}
 
 	public String salvar() throws IOException {
-		String nomeImagem = UploadImageUtil.copiar(imagem, evento.getImagem());
-
-		eventoDao.salvar(evento);
-		return "index";
+		String nomeImagem = UploadImageUtil.copiar(imagem,
+				evento.getImagem());
+		evento.setImagem(nomeImagem);
+		
+		//salvar
+		eventoDao.salvar(getEvento());
+		//retornar á..
+		return "evento";
 	}
 
 	public String carregarEdicao(String id) {

@@ -1,4 +1,4 @@
-package ContatoMb;
+package ManagedBean;
 
 import java.io.IOException;
 import java.util.List;
@@ -69,7 +69,8 @@ public class AnuncianteMb {
 		String nomeImagem = UploadImageUtil.copiar(imagem,
 				anunciante.getImagem());
 		anunciante.setImagem(nomeImagem);
-
+		
+		//salvar
 		anuncianteDao.salvar(getAnunciante());
 		return "/index?faces-redirect=true";
 	}
