@@ -27,7 +27,7 @@ public class Anunciante  {
 	
 	@Column(unique = true, nullable = false,length=30)
 	private String email;
-	private String descicao;
+	private String descricao;
 	private String imagem;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
@@ -85,16 +85,16 @@ public class Anunciante  {
 
 
 
-	public String getDescicao() {
-		return descicao;
+	public String getDescricao() {
+		return descricao;
 	}
 
 
 
 
 
-	public void setDescicao(String descicao) {
-		this.descicao = descicao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 

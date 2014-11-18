@@ -8,7 +8,7 @@
 
 <ui:composition template="../WEB-INF/templates/base.xhtml">
 	<ui:define name="page-title">
-		<h1>Canal - <small>lista</small></h1>
+		<h1>Anunciante - <small>lista</small></h1>
 	</ui:define>
 	<ui:define name="content">
 		<div class="panel panel-default col-md-9">
@@ -30,6 +30,10 @@
 						<h:column>
 							<f:facet name="header">Logo</f:facet>
 							<h:outputText value="#{anunciante.imagem}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Descricao</f:facet>
+							<h:outputText value="#{anunciante.descricao}" />
 						</h:column>
 						<h:column>
 							<h:commandLink action="#{anuncianteMb.carregarEdicao(anunciante.id)}"><span class="glyphicon glyphicon-pencil"></span></h:commandLink> 
