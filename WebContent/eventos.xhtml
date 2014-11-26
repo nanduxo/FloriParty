@@ -8,72 +8,37 @@
 
 <ui:composition template="WEB-INF/templates/base.xhtml">
 
-	<ui:define name="title">Bem vindo!</ui:define>
+	<ui:define name="title">FloriParty</ui:define>
 	<ui:define name="content">
-<div class="page-header">
-			<ui:insert name="page-title">
-				<h1>Eventos</h1>
-			</ui:insert>
-		</div>
-		
-		
-		<div class="container">
-
-		
-		<div class="festas col-md-9">
-				<a href="http://gomesfestaseeventos.com.br/site/festa/18-10-2014-6-enc-aposentados-rurais">
-				<div class="festa">
-					
-					<img src="http://gomesfestaseeventos.com.br/uploads/thumbs/strs1.jpg" alt="6º Enc, Aposentados Rurais - Vale Ararangua">
-					<p>6º Enc, Aposentad<small><small><small>...</small></small></small><br>Marcos &amp; Jobson</br> <br>18/10/2014.</br></p></img>
-				</div>
-			</a>
-						<a href="http://gomesfestaseeventos.com.br/site/festa/18-10-2014-31-rodeio-p-grande">
-				<div class="festa">
-					
-					<img src="http://gomesfestaseeventos.com.br/uploads/thumbs/Est._Chapelaooo_.jpg" alt="Est.Fandang.e Chapelão">
-					<p>31º Rodeio P. Grande<br>Est. Fandan Chapel</br>><small><small><small>...</small></small></small> <br>18/10/2014</br></p></img>
-				</div>
-			</a>
-						<a href="http://gomesfestaseeventos.com.br/site/festa/18-10-2014-jant-cursilho-s-rosa-sul">
-				<div class="festa">
-					
-					<img src="http://gomesfestaseeventos.com.br/uploads/thumbs/DSC_0381.jpg" alt="Jantar Dançante Cursilho Santa Rosa do Sul">
-					<p>Jant. Cursilho S. <small><small><small>...</small></small></small><br>Musical Matriz</br> <br>18/10/2014</br></p></img>
-				</div>
-			</a>
-						<a href="http://gomesfestaseeventos.com.br/site/festa/17-10-2014-31-rodeio-p-grande">
-				<div class="festa">
-					
-					<img src="http://gomesfestaseeventos.com.br/uploads/thumbs/Jjsv_Leo_Mont._.jpg" alt="31º Jssv e Leo Mont e Moreti Rodeio P. Grande">
-					<p>31º Rodeio P. Grande<br>Jjsv - Leo Mont.</br> &amp;<small><small><small>...</small></small></small> <br>17/10/2014</br></p></img>
-				</div>
-			</a>
-						<a href="http://gomesfestaseeventos.com.br/site/festa/16-10-2014-31-rodeio-p-grande">
-				<div class="festa">
-					
-					<img src="http://gomesfestaseeventos.com.br/uploads/thumbs/5ª_Chalera.jpg" alt="Baile Tche Chaleira Ctg P. Grande">
-					<p>31º  Rodeio P. Grande<br>Tchê Chaleira </br><br>16/10/2014</br></p></img>
-				</div>
-			</a>
-						<a href="http://gomesfestaseeventos.com.br/site/festa/12-10-2014-festa-cotovelo-j-machado">
-				<div class="festa">
-					
-					<img src="http://gomesfestaseeventos.com.br/uploads/thumbs/22.jpg" alt="Festa Cotovelo - Jacinto Machado">
-					<p>Festa Cotovelo J. <small><small><small>...</small></small></small><br>Willians &amp; Rodrigo </br><br>12/10/2014</br></p></img>
-				</div>
-			</a>
-						<a href="http://gomesfestaseeventos.com.br/site/festa/04-10-2014-baile-casais-ctg-sombrio">
-				<div class="festa">
-					
-					<img src="http://gomesfestaseeventos.com.br/uploads/thumbs/chapelao.jpg" alt="Baile de Casais Ctg. Esp. de Prata em Sombrio">
-					<p>Baile Casais Ctg Sombrio<br>Grupo Chapelão </br><br>04/10/2014</br></p></img>
-				</div>
-			</a>
-			
-			<div class="col-md-12"><center><ul class="pagination "><li class="active"><a>1</a></li><li><a href="http://gomesfestaseeventos.com.br/site/festas/pagina/2">2</a></li><li><a href="http://gomesfestaseeventos.com.br/site/festas/pagina/3">3</a></li><li><a href="http://gomesfestaseeventos.com.br/site/festas/pagina/2">Próxima</a></li><li><a href="http://gomesfestaseeventos.com.br/site/festas/pagina/5">Última</a></li></ul></center></div></div>
-	</div>
-	
+		<h:outputStylesheet library="css" name="divulgacao.css" />
+		<div class="row ">
+			<div class="col-lg-12">
+				<ui:repeat value="#{AnuncianteMb.listAnunciante}" var="listAnunciante"/>
+					<div class="col-md-4 col-md-6">
+						<div class="divulgacao">
+							<div class="thumbnail">
+								<h:graphicImage class="imglogo"
+									value="#{AnuncianteMb.caminho(listAnunciante.logo)}" />
+								<div>
+									<h:outputText value="#{listAnunciante.id}" />
+								</div>
+								<div>
+									<h:outputText value="#{listAnunciante.nome}" />
+								</div>
+								<div>
+									<h:outputText value="#{listAnunciante.email}" />
+								</div>
+								<div>
+									<h:outputText value="#{listAnunciante.descricao}" />
+								</div>
+								<div>
+									<h:outputText value="#{listAnunciante.imagem}" />
+								</div>
+							</div>
+						</div>
+						</div>
+						</div>
+						</div>
 	</ui:define>
 </ui:composition>
 </html>
