@@ -19,8 +19,16 @@ public class ClienteDao {
 		this.entityManager = entityManager;
 	}
 
-	
-
+	public Cliente buscarClientePorNome(String nome) {
+		Query query = entityManager.createQuery(
+				"From Usuario u Where u.nome = :nome", Cliente.class);
+		query.setParameter("nome", nome);
+		try {
+			return (Cliente) query.getSingleResult();
+		} catch (Exception exception) {
+			return null;
+		}
+	}
 
 
 	public List<Cliente> listar() {

@@ -10,7 +10,7 @@
 
 	<ui:define name="title">Bem vindo!</ui:define>
 	<ui:define name="content">
-
+<h:outputStylesheet library="css" name="imagemevento.css"></h:outputStylesheet>
 		<div class="panel panel-default col-md-9">
 			<div class="panel-body">
 				<h:form role="form" enctype="multipart/form-data">
@@ -34,10 +34,12 @@
 							<h:outputText value="#{evento.data}" />
 						</h:column>
 						<h:column>
+						<div class=".tamanho">
 							<f:facet name="header">Imagen</f:facet>
-							<div>
+							
 								<h:graphicImage
-									value="#{eventoMb.caminho(eventoMb.evento.imagem)}" />
+									value="#{eventoMb.caminho(evento.imagem)}" />
+							
 							</div>
 						</h:column>
 
@@ -46,6 +48,7 @@
 				</h:form>
 			</div>
 		</div>
+		
 	</ui:define>
 
 

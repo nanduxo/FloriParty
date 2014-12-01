@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import model.Relacionamento;
 import Dao.ClienteDao;
@@ -17,6 +19,8 @@ public class ClienteMb {
 	private List<Cliente> clientes;
 	private Cliente cliente;
 	private static List<Relacionamento> relacionamentos;
+	private Cliente ClienteLogado;
+	private Cliente ClienteLogin;
 	
 	//lista
 	public List<Cliente> getClientes() {
@@ -62,6 +66,22 @@ public class ClienteMb {
 		this.cliente = cliente;
 	}
 
+	public Cliente getClienteLogado() {
+		return ClienteLogado;
+	}
+
+	public void setClienteLogado(Cliente clienteLogado) {
+		ClienteLogado = clienteLogado;
+	}
+
+	public Cliente getClienteLogin() {
+		return ClienteLogin;
+	}
+
+	public void setClienteLogin(Cliente clienteLogin) {
+		ClienteLogin = clienteLogin;
+	}
+
 	//iniciar dao
 	@PostConstruct
 	public void init() {
@@ -73,7 +93,7 @@ public class ClienteMb {
 
 	public String salvar() throws IOException {
 		clienteDao.salvar(cliente);
-		return "clientelista";
+		return "index";
 	}
 
 	public String carregarEdicao(String id) {
@@ -86,6 +106,37 @@ public class ClienteMb {
 
 		clientes = null;
 		return "clientelista";
+	}
+
+	
+	//controle de sessão
+	
+	public String login() {
+		if (fazerLogin()) {
+			return "index?faces-redirect=true";
+		}
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage("Usuário ou senha não confere."));
+		return "";
+	}
+	
+	private boolean fazerLogin() {
+		ClienteDao dao = new ClienteDao();
+		Cliente cliente = dao.buscarClientePorNome(ClienteLogin.getNome());
+		
+		if (cliente == null)
+			return false;
+		if (!cliente.getSenha().equals(ClienteLogin.getSenha()))
+			return false;
+		if (!cliente.getNome().equalsIgnoreCase(ClienteLogin.getNome()))
+			return false;
+		
+		ClienteLogado = cliente;
+		return true;
+	}
+	public String logout() {
+		ClienteLogado = null;
+		return "index?faces-redirect=true";
 	}
 
 	

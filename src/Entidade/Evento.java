@@ -17,13 +17,19 @@ public class Evento {
 	private Long id;
 	
 	//
-	@Column(length=30)
+	@Column(length=30, unique=true)
 	private String nome;
+	
 	private String data;
+	
 	private String local;
+	
 	private String traje;
+	
 	private float valor;
+	
 	private String atracao;
+	
 	private String imagem;
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
