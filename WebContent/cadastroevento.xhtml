@@ -7,9 +7,9 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="WEB-INF/templates/base.xhtml">
+
 	<ui:define name="title">Bem vindo!</ui:define>
 	<ui:define name="content">
-
 		<div class="page-header">
 			<ui:insert name="page-title">
 				<h1>Cadastro Eventos</h1>
@@ -26,7 +26,7 @@
 							styleClass="form-control" />
 					</div>
 					<div class="form-group">
-						<h:outputLabel value="Data e Hora do Evento" />
+						<h:outputLabel value="Data" />
 						<h:inputText value="#{eventoMb.evento.data}" styleClass="form-control" >
 							<f:passThroughAttribute name="type" value="datetime-local"/>
 							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />	
@@ -54,7 +54,6 @@
 							<h:inputText value="#{eventoMb.evento.atracao}"
 								styleClass="form-control" />
 						<div class="form-group">
-						
 						<h:outputLabel value="Imagem/Flyer" /> 
 						<h:inputFile value="#{eventoMb.imagem}" styleClass="form-control" />
 						<h:inputHidden value="#{eventoMb.evento.imagem}" />
