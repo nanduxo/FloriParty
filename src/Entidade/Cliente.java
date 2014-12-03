@@ -3,6 +3,7 @@ package Entidade;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,19 +16,25 @@ public class Cliente  {
 	
 	
 	
-
+   
 
 	@Id
 	@GeneratedValue
 	private Long id;
 	// classes do Bancocliente
-
+    @Column(length=80)
 	private String nome;
+	@Column(unique=true,nullable=false)
 	private String cpf;
+	@Column(unique=true,nullable=false)
 	private String email;
+	@Column(nullable=false,length=12)
 	private String senha;
+	@Column(nullable=false)
 	private String sexo;
 	private Integer relacionamento;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
+	private List<Evento> Eventos;
 
 	
 	
@@ -47,9 +54,7 @@ public class Cliente  {
 		this.sexo = sexo;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
-	private List<Evento> Eventos;
-
+	
 	
 	
 	

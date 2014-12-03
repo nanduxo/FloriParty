@@ -14,8 +14,8 @@ public class EventoDao {
 		entityManager = JpaUtil.getEntityManager();
 	}
 	
-	public EventoDao(EntityManager entityManager2) {
-		// TODO Auto-generated constructor stub
+	public EventoDao(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 	public List<Evento> listar() {

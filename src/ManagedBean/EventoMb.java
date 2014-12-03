@@ -5,12 +5,13 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.servlet.http.Part;
 
 import Util.UploadImageUtil;
 import Dao.EventoDao;
 import Entidade.Evento;
-
+@SessionScoped
 @ManagedBean
 public class EventoMb {
 	private EventoDao eventoDao;
@@ -19,6 +20,7 @@ public class EventoMb {
 	private Part imagem;
 
 	public List<Evento> getEventos() {
+		eventoDao = new EventoDao();
 		if (eventos == null) {
 			eventos = eventoDao.listar();
 		}
@@ -47,7 +49,6 @@ public class EventoMb {
 
 	@PostConstruct
 	public void init() {
-		eventoDao = new EventoDao();
 		evento = new Evento();
 	}
 
@@ -58,6 +59,7 @@ public class EventoMb {
 	}
 
 	public String salvar() throws IOException {
+		eventoDao = new EventoDao();
 		String nomeImagem = UploadImageUtil.copiar(imagem,
 				evento.getImagem());
 		evento.setImagem(nomeImagem);
@@ -65,15 +67,17 @@ public class EventoMb {
 		//salvar
 		eventoDao.salvar(getEvento());
 		//retornar á..
-		return "evento";
+		return "index";
 	}
 
 	public String carregarEdicao(String id) {
+		eventoDao = new EventoDao();
 		evento = eventoDao.buscarPorId(Long.parseLong(id));
 		return "eventoform";
 	}
 
 	public String excluir(String id) {
+		eventoDao = new EventoDao();
 		Evento eventoRemovido = eventoDao.excluir(Long.parseLong(id));
 
 		eventos = null;

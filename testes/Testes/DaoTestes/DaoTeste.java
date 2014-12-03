@@ -26,14 +26,25 @@ public class DaoTeste extends TestCase {
 		entityManager = JpaUtil.createEntityManager();
 	}
 	
-	@Test
-	public void testEntityManager(){
-		assertNotNull("Gerenciamento de entidade está nulo", entityManager);
-	}
+	
 	
 	@Test
 	public void testClienteDao() {
-		ClienteDao dao = new ClienteDao();
+		ClienteDao dao = new ClienteDao(entityManager);
+		assertNotNull("Objeto de acesso a dados do objeto Cliente esta nulo", dao);
+		dao = null;
+	}
+	
+	@Test
+	public void testEventoDao() {
+		ClienteDao dao = new ClienteDao(entityManager);
+		assertNotNull("Objeto de acesso a dados do objeto Cliente esta nulo", dao);
+		dao = null;
+	}
+	
+	@Test
+	public void testAnunciante() {
+		ClienteDao dao = new ClienteDao(entityManager);
 		assertNotNull("Objeto de acesso a dados do objeto Cliente esta nulo", dao);
 		dao = null;
 	}

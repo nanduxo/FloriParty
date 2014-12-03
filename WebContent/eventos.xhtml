@@ -10,35 +10,47 @@
 
 	<ui:define name="title">FloriParty</ui:define>
 	<ui:define name="content">
-		<h:outputStylesheet library="css" name="divulgacao.css" />
-		<div class="row ">
-			<div class="col-lg-12">
-				<ui:repeat value="#{AnuncianteMb.listAnunciante}" var="listAnunciante"/>
-					<div class="col-md-4 col-md-6">
-						<div class="divulgacao">
-							<div class="thumbnail">
-								<h:graphicImage class="imglogo"
-									value="#{AnuncianteMb.caminho(listAnunciante.logo)}" />
-								<div>
-									<h:outputText value="#{listAnunciante.id}" />
-								</div>
-								<div>
-									<h:outputText value="#{listAnunciante.nome}" />
-								</div>
-								<div>
-									<h:outputText value="#{listAnunciante.email}" />
-								</div>
-								<div>
-									<h:outputText value="#{listAnunciante.descricao}" />
-								</div>
-								<div>
-									<h:outputText value="#{listAnunciante.imagem}" />
-								</div>
+
+
+
+		<div class="panel panel-default col-md-9">
+			<div class="panel-body">
+				<h:form role="form" enctype="multipart/form-data">
+
+					<h:dataTable value="#{eventoMb.eventos}" var="evento"
+						styleClass="table">
+						<h:column>
+							<f:facet name="header">Nº do Evento</f:facet>
+							<h:outputText value="#{evento.nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nome do Evento</f:facet>
+							<h:outputText value="#{evento.local}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Atração</f:facet>
+							<h:outputText value="#{evento.atracao}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Data</f:facet>
+							<h:outputText value="#{evento.data}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Imagen</f:facet>
+							<div>
+								<h:graphicImage
+									value="#{eventoMb.caminho(eventoMb.evento.imagem)}" />
 							</div>
-						</div>
-						</div>
-						</div>
-						</div>
+						</h:column>
+
+					</h:dataTable>
+
+				</h:form>
+			</div>
+		</div>
 	</ui:define>
+
+
+
 </ui:composition>
 </html>

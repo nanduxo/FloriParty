@@ -25,37 +25,108 @@
 				<ul class="nav navbar-nav">
 					<li><a href="quemsomos.xhtml">Quem somos</a></li>
 					<li><a href="eventos.xhtml">Eventos</a></li>
-					<li ><a href="contato.xhtml">Contato</a></li>
+					<li><a href="contato.xhtml">Contato</a></li>
 					<li><a href="localizacao.xhtml">Localização</a></li>
+					
 				</ul>
 
 
-				<form class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Digite Aqui"></input>
-					</div>
-					<button type="submit" class="btn btn-default">Pesquisar</button>
-				</form>
-				<ul class="nav navbar-nav navbar-right">
+
+<ul id="logado" class="nav navbar-nav navbar-right">
+
+<h:panelGroup rendered="#{clienteMb.logado}">
+				
+					<li><a href="cadastroevento.xhtml">Cadastre seu Evento</a></li>
+				
+</h:panelGroup>
+
+<h:panelGroup rendered="#{not clienteMb.logado}">
+				
 					<li><a href="cadastro.xhtml">Cadastre-se</a></li>
-					
-					<ul id="menu_admin" class="nav navbar-nav navbar-right">
-					<li class="dropdown"> <a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Admin <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><h:link outcome="/admin/clienteform" value="Cadastrar Cliente" /></li>
-							<li><h:link outcome="/admin/clientelista" value="Listar de Clientes" /></li>
-							<li><h:link outcome="/admin/cadastroanunciante" value="Cadastrar Anunciante" /></li>
-							<li><h:link outcome="/admin/anunciantelista" value="Lista de Anunciantes" /></li>
-							<li><h:link outcome="/admin/eventolista" value="Lista de Eventos" /></li>
-						</ul></li>
+				
+</h:panelGroup>
+
+
+</ul>
+
+
+				<ul id="menu_admin" class="nav navbar-nav navbar-right">
+					<h:panelGroup rendered="#{not clienteMb.logado}">
+						<button type="submit" class="btn btn-default" data-toggle="modal"
+							data-target=".bs-example-modal-lg">Login</button>
+						<div class="modal fade bs-example-modal-lg" tabindex="-1"
+							role="dialog" aria-labelledby="mySmallModalLabel"
+							aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="panel panel-default col-md-7">
+										<div class="panel-body">
+
+
+
+											<h:form>
+												<div class="form-group">
+													<h:outputLabel value="E-Mail" />
+													<h:inputText value="#{clienteMb.login.email}"
+														styleClass="form-control" />
+												</div>
+												<div class="form-group">
+													<h:outputLabel value="Senha" />
+													<h:inputSecret value="#{clienteMb.login.senha}"
+														styleClass="form-control" />
+												</div>
+												<h:commandButton action="#{clienteMb.login}"
+													styleClass="btn btn-success" value="Entrar" />
+												<input type="reset" value="Limpar" class="btn btn-default" />
+											</h:form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</h:panelGroup>
+
+
+
+
+
+
+
+					<h:panelGroup rendered="#{clienteMb.logado}">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span
+								style="padding: 4px;"> <h:outputText
+										value="#{clienteMb.cliente.nome}" />
+							</span> <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+
+								<li><h:link outcome="/admin/clienteform"
+										value="Cadastrar Cliente" /></li>
+								<li><h:link outcome="/admin/clientelista"
+										value="Listar de Clientes" /></li>
+								<li><h:link outcome="/admin/cadastroanunciante"
+										value="Cadastrar Anunciante" /></li>
+								<li><h:link outcome="/admin/anunciantelista"
+										value="Lista de Anunciantes" /></li>
+								<li><h:link outcome="/admin/eventolista"
+										value="Lista de Eventos" /></li>
+								<h:commandButton style="float:right;"
+									styleClass="btn btn-default" action="#{clienteMb.logout}"
+									value="Sair" />
+							</ul></li>
+					</h:panelGroup>
 				</ul>
-					
-						
-						
-				</ul>
+
 			</div>
 		</div>
+
+
+
+
+
+
+
 	</nav>
 
 	<h:outputScript library="js" name="menu.js"></h:outputScript>

@@ -17,7 +17,7 @@ public class Evento {
 	private Long id;
 	
 	//
-	@Column(length=30)
+	@Column(unique=true,nullable=false)
 	private String nome;
 	private String data;
 	private String local;

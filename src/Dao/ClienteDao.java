@@ -20,7 +20,16 @@ public class ClienteDao {
 	}
 
 	
-
+	public Cliente buscarUsuarioPorEmail(String email) {
+		Query query = entityManager.createQuery(
+				"From Cliente Where email = :email", Cliente.class);
+		query.setParameter("email", email);
+		try {
+			return (Cliente) query.getSingleResult();
+		} catch (Exception exception) {
+			return null;
+		}
+	}
 
 
 	public List<Cliente> listar() {

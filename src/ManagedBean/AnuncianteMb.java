@@ -5,12 +5,13 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.servlet.http.Part;
 
 import Util.UploadImageUtil;
 import Dao.AnuncianteDao;
 import Entidade.Anunciante;
-
+@SessionScoped
 @ManagedBean
 public class AnuncianteMb {
 	private AnuncianteDao anuncianteDao;
@@ -27,6 +28,7 @@ public class AnuncianteMb {
 	}
 
 	public List<Anunciante> getAnunciantes() {
+		anuncianteDao = new AnuncianteDao();
 		if (anunciantes == null) {
 			anunciantes = anuncianteDao.listar();
 		}
@@ -51,7 +53,7 @@ public class AnuncianteMb {
 
 	@PostConstruct
 	public void init() {
-		anuncianteDao = new AnuncianteDao();
+	
 		anunciante = new Anunciante();
 	}
 
@@ -66,6 +68,7 @@ public class AnuncianteMb {
 	}
 
 	public String salvar() throws IOException {
+		anuncianteDao = new AnuncianteDao();
 		String nomeImagem = UploadImageUtil.copiar(imagem,
 				anunciante.getImagem());
 		anunciante.setImagem(nomeImagem);
@@ -76,11 +79,13 @@ public class AnuncianteMb {
 	}
 
 	public String carregarEdicao(String id) {
+		anuncianteDao = new AnuncianteDao();
 		anunciante = anuncianteDao.buscarPorId(Long.parseLong(id));
 		return "anuncianteform";
 	}
 
 	public String excluir(String id) {
+		anuncianteDao = new AnuncianteDao();
 		Anunciante anuncianteRemovido = anuncianteDao.excluir(Long
 				.parseLong(id));
 

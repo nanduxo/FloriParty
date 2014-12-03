@@ -3,6 +3,7 @@ package Entidade;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,8 +22,9 @@ public class Anunciante  {
 	@GeneratedValue
 	private Long id;
 	// classes do Bancocliente
-
+	@Column(unique=true,nullable=false)
 	private String nome;
+	@Column(unique=true,nullable=false)
 	private String email;
 	private String descricao;
 	private String imagem;

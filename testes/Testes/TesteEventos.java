@@ -33,7 +33,7 @@ public class TesteEventos {
 
 	private static void inserir() {
 		Evento eventos = new Evento();
-		eventos.setNome("XXX Pirocada");
+		eventos.setNome("XX Praia");
 		eventos.setAtracao("Os Mulekes");
 		eventos.setData("25/01/14");
 		eventos.setTraje("casual");
